@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+    <h1>Create map of your friends on twitter</h1>
+    <form action="/register" method="post">
+        <input autocomplete="off" autofocus name="name" placeholder="Name" type="text">
+        <input type="submit" value="Create map">
+    </form>
+{% endblock %}
