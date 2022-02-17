@@ -5,8 +5,7 @@ import folium
 from geopy.geocoders import Nominatim
 import json
 
-token = 'AAAAAAAAAAAAAAAAAAAAACkLZQEAAAAAJD9WEafnPiJ7ni6SwI5JqWKdM1E%3DvU9ltw9kcCKzlUakhCHfQAnXAqTINFyVPv01Zmd2sfpSZos2Pl'
-
+from config_token import token
 
 def get_followers(id):
     """
