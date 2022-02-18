@@ -38,7 +38,7 @@ def create_map(name):
     try:
         id = get_id(name)
     except:
-        return False
+        return None
     followers = get_followers(id)
 
     geolocator = Nominatim(user_agent="Map creator")
@@ -57,8 +57,8 @@ def create_map(name):
             continue
         
     map.add_child(fg)
-    map.save('templates/map.html')
-    return True
+    #map.save('templates/map.html')
+    return map
 
 
 
@@ -72,8 +72,9 @@ def index():
 @app.route("/register", methods=["POST"])
 def register():
     name = request.form.get("name")
-    if create_map(name):
-        return render_template("map.html")
+    map =  create_map(name)
+    if map != None:
+        return  map._repr_html_()
     else:
         return render_template("error.html", message="Invalid name")
 
